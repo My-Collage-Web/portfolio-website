@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Areeba Khanam Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: "Open Sans", sans-serif; color: #fff;
+}
+body, html { background: #1a1a1a; overflow-x: hidden; }
+
+/* Header */
+header {
+    padding: 8px 20px; display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap;
+}
+.logo {
+    border: 1px solid blue; border-radius: 50%; width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; font-weight: 200; cursor: pointer;
+}
+nav ul {
+    display: flex; gap: 40px; list-style: none; font-size: 0.9rem;
+}
+nav ul li { cursor: pointer; }
+
+/* First Section */
+#first {
+    height: 85vh; display: flex; justify-content: space-around; align-items: center;
+    padding: 0 20px; flex-wrap: wrap;
+}
+.main-heading {
+    width: 60%; display: flex; flex-direction: column; justify-content: center;
+    position: relative; bottom: 50px;
+}
+h1 { font-size: 2.5rem; font-weight: 500; line-height: 45px; }
+h5 { margin: 10px 0; font-weight: 100; }
+.btn { position: relative; top: 10px; }
+#project-btn {
+    border: none; background: linear-gradient(to right, rgb(73,73,221), purple);
+    background-size: 200% 100%; padding: 8px 16px; border-radius: 8px;
+    cursor: pointer; transition: 0.3s, background-position 0.5s;
+}
+#project-btn:hover {
+    background-position: right; transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+}
+.main-img {
+    border: 2px solid blue; border-radius: 50%; width: 200px; height: 200px;
+    overflow: hidden; display: flex; align-items: center; justify-content: center;
+    position: relative; bottom: 50px;
+}
+.main-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Second Section */
+#second { display: flex; flex-wrap: wrap; justify-content: center;}
+.first-col-section, .second-col-section { width: 50%; padding: 20px;}
+.about-section { color: #999; font-size: 11px; }
+.about-section h3 { font-size: 25px; font-weight: 550; margin: 10px; }
+.about-section p, .about-section ul { width: 95%; margin: 0 10px; font-size: 12px; }
+.about-section ul { font-size: 14px; margin-top: 5px; }
+.about-section li { margin-left: 25px; line-height: 25px; }
+
+.skills-section { margin-top: 160px;}
+.skills-section h3 { font-size: 25px; font-weight: 550; margin-bottom: 15px; }
+.skills-logos {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; justify-items: center;
+}
+.skill-item { display: flex; flex-direction: column; align-items: center; transition: 0.3s; }
+.skill-item img { width: 40px; height: 40px; object-fit: contain; margin-bottom: 6px; transition: 0.3s; }
+.skill-item p { font-size: 0.7rem; color: #ccc; }
+.skill-item:hover { transform: scale(1.1); }
+.skill-item:hover img { filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)); }
+
+/* Projects */
+.project-section h3 { margin: 10px 0 20px 35px; font-size: 20px; font-weight: 550; }
+.project-container {
+    display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;
+}
+.project-card {
+    background: #222; border-radius: 10px; width: 150px; padding: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25); transition: 0.4s; cursor: pointer;
+}
+.project-card:hover { transform: scale(1.03); box-shadow: 0 6px 18px rgba(0,0,0,0.45); }
+.project-card img { width: 100%; border-radius: 8px; object-fit: cover; }
+.project-card h3 { margin: 12px 0 4px; font-size: 0.95rem; }
+.project-card p { font-size: 0.78rem; line-height: 1.3; }
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 999;
+}
+.hamburger .bar {
+    height: 3px; width: 25px; background: white; border-radius: 5px; transition: 0.3s;
+}
+.hamburger.active .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active .bar:nth-child(2) { opacity: 0; }
+.hamburger.active .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Responsive */
+@media (max-width: 768px) {
+    header { flex-direction: row; justify-content: space-between; }
+    nav { 
+        position: absolute; top: 60px; left: 0; width: 100%; background: #1a1a1a;
+        flex-direction: column; align-items: center; max-height: 0; overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.4s ease; opacity: 0;
+    }
+    nav.show { max-height: 500px; opacity: 1; }
+    nav ul { flex-direction: column; gap: 15px; padding: 20px 0; margin: 0; }
+    nav ul li { text-align: center; padding: 10px 0; }
+    .hamburger { display: flex; }
+    #navbar {background-color: rgb(55 52 52); position: absolute; z-index: 2;}
+    #navbar ul li {border: 2px solid #5e5e6b; border-radius: 7px; width: 80%; margin: auto; padding: 20px; font-size: 1.4rem;}
+    #first { flex-direction: column; text-align: center; height: auto; padding: 40px 20px; margin-top: 5rem;}
+    .main-heading { width: 100%; align-items: center; margin-bottom: 20px; }
+    .main-img { margin-top: 20px; }
+    #second { flex-direction: column; align-items: flex-start; }
+    .first-col-section, .second-col-section { width: 100%; }
+    .about-section ul li {text-align: justify;}
+    .skills-section {margin-top: 5rem;}
+    .skills-section h3 {font-size: 25px;}
+    .skills-logos {padding: 6px; grid-template-columns: repeat(3, 1fr);}
+    .project-section h3 {font-size: 25px; margin: 10px 0px 20px 0px;}
+    .project-container {display: flex; justify-content: space-around; align-items: center;}
+    .project-card {width: 38%; height: 100%;}
+}
+@media (min-width: 1024px) {
+    body { transform: scale(1.25); transform-origin: top left; width: 80%; }
+    #my-project-heading { margin-left: 80px; }
+    #navbar { margin-right: 30px; }
+    #navbar ul li { margin: 10px; font-size: 15px; }
+    #my-project-heading {font-size: 25px;}
+}
+</style>
+</head>
+<body>
+<header>
+    <div class="logo">AK</div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+    <nav id="navbar">
+        <ul>
+            <li>About</li><li>Projects</li><li>Skills</li><li>Contact</li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+<section id="first">
+    <div class="main-heading">
+        <h1>Hi, I'm <br> Areeba Khanam</h1>
+        <h5>Aspiring Web Developer & Designer</h5>
+        <div class="btn"><button id="project-btn">View projects</button></div>
+    </div>
+    <div class="main-img">
+        <img src="https://images.unsplash.com/photo-1506863530036-1efeddceb993?q=80&w=1488&auto=format&fit=crop" alt="Profile Image" class="profile-img">
+    </div>
+</section>
+
+<section id="second">
+    <div class="first-col-section">
+        <div class="about-section">
+            <h3>About Me</h3>
+            <p>I'm a passionate web developer with a love for clean, responsive designs. I enjoy turning complex problems into elegant, user-friendly solutions.</p>
+            <ul>
+                <li>💻 Passionate about front-end development and creative design.</li>
+                <li>📚 Constantly learning HTML, CSS, JavaScript & modern frameworks.</li>
+                <li>🎯 Focused on building responsive and user-friendly websites.</li>
+            </ul>
+        </div>
+        <div class="skills-section">
+            <h3>Skills</h3>
+            <div class="skills-logos">
+                <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><p>HTML</p></div>
+                <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><p>CSS</p></div>
+                <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><p>JavaScript</p></div>
+                <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><p>React.js</p></div>
+                <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"><p>Figma</p></div>
+                <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"><p>VS Code</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="second-col-section">
+        <div class="project-section">
+            <h3 id="my-project-heading">My Projects</h3>
+            <div class="project-container">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/280x150" alt="Project 1" />
+                    <h3>Project One</h3>
+                    <p>Small project description to showcase purpose and tech used.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/280x150" alt="Project 2" />
+                    <h3>Project Two</h3>
+                    <p>Small project description to showcase purpose and tech used.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+
+</script>
+
+
+<script>
+function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("show");
+    document.querySelector(".hamburger").classList.toggle("active");
+}
+
+</script>
+</body>
+</html>
